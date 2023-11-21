@@ -1,0 +1,32 @@
+{
+  "name": "my-new-project",
+  "type": "module",
+  "devDependencies": {
+    "@babel/core": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
+    "@babel/register": "^7.22.15",
+    "@testing-library/webdriverio": "^3.2.1",
+    "@wdio/allure-reporter": "^8.23.1",
+    "@wdio/cli": "^8.23.1",
+    "@wdio/cucumber-framework": "^8.23.1",
+    "@wdio/local-runner": "^8.23.1",
+    "@wdio/spec-reporter": "^8.23.1",
+    "wdio-wait-for": "^3.0.8"
+  },
+  "scripts": {
+    "allure": "allure generate allure-results && allure open",
+    "wdio": "wdio run ./wdio.conf.js",
+    "wdio-tag": "wdio run ./wdio.conf.js --cucumberOpts.tagExpression"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.3.1",
+    "allure-commandline": "^2.24.1",
+    "chai": "^4.3.10",
+    "eslint": "^8.54.0",
+    "fs-extra": "^11.1.1",
+    "i": "^0.3.7",
+    "lodash": "^4.17.21",
+    "npm": "^10.2.4",
+    "wdio-video-reporter": "^4.0.5"
+  }
+}
