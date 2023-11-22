@@ -2,7 +2,7 @@ pipeline {
     agent { label 'ubuntu-qa' }
 
     tools {
-        nodejs 'v20.9.0'
+        nodejs 'latest'
         jdk 'latest'
     }
     stages {
