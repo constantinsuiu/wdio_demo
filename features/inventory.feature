@@ -9,12 +9,12 @@ Feature: Validating inventory page functionality
     When I sort the data using <sortingOption>
     Then I validate data is sorted by <sortingOption>
 
-    Examples:
-      | sortingOption |
-      | za            |
-      | az            |
-      | lohi          |
-      | hilo          |
+  Examples:
+    | sortingOption |
+    | za            |
+    | az            |
+    | lohi          |
+    | hilo          |
 
   Scenario: Test add/remove cart functionaity
     Given I add a product to cart

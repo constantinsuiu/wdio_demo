@@ -1,9 +1,8 @@
 @cart
-Feature: Validating inventory page functionality
+Feature: Validating cart page functionality
   Background: Login with a valid user
     Given I navigate to Login page
     Then I login with standard_user and secret_sauce
-    
 
   Scenario: Test product order successful flow
     Given I navigate to Cart page
