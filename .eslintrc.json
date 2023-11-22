@@ -18,7 +18,7 @@
 		"ecmaVersion": 13,
         "sourceType":"module"
 	},
-	"ignorePatterns": ["build/", "assets/"],
+	"ignorePatterns": ["allure-*"],
 	"rules": {
 		"block-spacing": "error",
 		"comma-dangle": ["error", "never"],
