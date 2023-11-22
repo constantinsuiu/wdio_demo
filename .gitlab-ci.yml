@@ -1,0 +1,29 @@
+
+stages:
+  - test
+
+lint:
+  stage: test
+  script:
+    - npm install -g eslint
+    - eslint . --ext .js,.jsx,.ts,.tsx
+
+gherkin-lint:
+  stage: test
+  script:
+    - npm install -g gherkin-lint
+    - gherkin-lint
+
+wdio-run:
+  stage: test
+  dependencies:
+    - lint
+  artifacts:
+    untracked: false
+    when: on_success
+    expire_in: 7 days
+    paths:
+      - /video
+  script:
+    - npm i
+    - npm run wdio
