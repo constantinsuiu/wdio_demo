@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'ubuntu-qa' }
+    agent { label 'mac-qa' }
 
     tools {
         nodejs 'latest'
@@ -17,9 +17,9 @@ pipeline {
             }
         }
     }
-    // post {
-    //     always {
-    //         archiveArtifacts artifacts: 'video/'
-    //     }
-    // }
+    post {
+        always {
+            archiveArtifacts artifacts: 'video/'
+        }
+    }
 }
