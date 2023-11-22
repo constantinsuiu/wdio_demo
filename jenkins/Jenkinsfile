@@ -1,0 +1,29 @@
+pipeline {
+    agent { label 'ubuntu-qa' }
+
+    tools {
+        nodejs 'v20.9.0'
+        jdk 'latest'
+    }
+    stages {
+        stage('Install packages') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('Run tests') {
+            steps {
+                withVault([configuration: configuration, vaultSecrets: secrets]) {
+                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                        sh 'npm run wdio'
+                    }
+                }
+            }
+        }
+    }
+    post {
+        always {
+            archiveArtifacts artifacts: 'video/'
+        }
+    }
+}
