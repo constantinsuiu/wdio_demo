@@ -1,3 +1,8 @@
+image: timbru31/java-node:latest
+
+cache:
+  paths:
+    - node_modules/
 
 stages:
   - test
@@ -20,10 +25,10 @@ wdio-run:
     - lint
   artifacts:
     untracked: false
-    when: on_success
-    expire_in: 7 days
+    when: always
+    expire_in: 5 days
     paths:
-      - /video
+      - ./video
   script:
     - npm i
     - npm run wdio
