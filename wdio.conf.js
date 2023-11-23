@@ -57,7 +57,7 @@ export const config = {
   capabilities: [{
     browserName: 'chrome',
     'goog:chromeOptions': {
-      args: ['headless', 'disable-gpu']
+      args: ['headless', 'disable-gpu', '--disable-dev-shm-usage', '--no-sandbox']
     }
   }
     //   , {

@@ -1,0 +1,35 @@
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - test
+
+lint:
+  stage: test
+  image: node:lts-slim
+  script:
+    - npm install -g eslint
+    - eslint . --ext .js,.jsx,.ts,.tsx
+
+gherkin-lint:
+  image: node:lts-slim
+  stage: test
+  script:
+    - npm install -g gherkin-lint
+    - gherkin-lint
+
+wdio-run:
+image: atools/chrome-headless:java17-nodelts-latest
+  stage: test
+  needs:
+    - lint
+  artifacts:
+    untracked: false
+    when: always
+    expire_in: 5 days
+    paths:
+      - ./video
+  script:
+    - npm i
+    - npm run wdio
