@@ -1,4 +1,4 @@
-image: timbru31/java-node:latest
+
 
 cache:
   paths:
@@ -9,19 +9,22 @@ stages:
 
 lint:
   stage: test
+  image: node:lts-slim
   script:
     - npm install -g eslint
     - eslint . --ext .js,.jsx,.ts,.tsx
 
 gherkin-lint:
+  image: node:lts-slim
   stage: test
   script:
     - npm install -g gherkin-lint
     - gherkin-lint
 
 wdio-run:
+image: atools/chrome-headless:java17-nodelts-latest
   stage: test
-  dependencies:
+  needs:
     - lint
   artifacts:
     untracked: false
